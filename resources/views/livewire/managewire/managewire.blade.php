@@ -43,7 +43,7 @@
         </table>
     </div>
     <div class="fixed top-20 left-[70rem]"> 
-        <form class="bg-purple-300 px-4 py-4 w-[18rem] rounded-md" wire:submit.prevent="{{$editbtn ? 'update' : 'add'}}">
+        <form class="bg-purple-300 px-4 py-4 w-[19rem] rounded-md" wire:submit.prevent="{{$editbtn ? 'update' : 'add'}}">
             <h1 class="text-2xl ml-[4rem]">{{$tablename}}</h1>
             <div class="flex flex-col">
                 <x-input-label for="sec" class="text-xl text-white">{{$tablename}}</x-input-label>
@@ -55,7 +55,7 @@
             </div>
             <div class="flex flex-col">
                 <x-input-label for="date" class="text-xl text-white">Date</x-input-label>
-                <x-text-input class="bg-white text-black border w-[15vw] h-[3rem] text-center border-black" placeholder="Date" id="date" wire:model.defer="state.date"></x-text-input>  
+                <x-text-input class="bg-white text-black border w-[15vw] h-[3rem] text-center border-black" placeholder="Date" id="date" wire:model.lazy="state.date"></x-text-input>  
                
                 @error('date')
                     
@@ -64,9 +64,9 @@
             </div>
             @if ($editbtn)
                 
-            <button class="bg-slate-600 px-2 py-2 mt-4 text-center rounded-md w-[14rem] text-white hover:bg-blue-600 duration-700" type="submit">Save changes</button>
+            <button class="bg-slate-600 px-2 py-2 mt-4 text-center rounded-md w-[16rem] text-white hover:bg-blue-600 duration-700" type="submit">Save changes</button>
             @else
-            <button class="bg-slate-600 px-2 py-2 mt-4 text-center rounded-md w-[14rem] text-white hover:bg-blue-600 duration-700" type="submit">Save</button>
+            <button class="bg-slate-600 px-2 py-2 mt-4 text-center rounded-md w-[16rem] text-white hover:bg-blue-600 duration-700" type="submit">Save</button>
             @endif
           
         </form>
@@ -75,7 +75,7 @@
 <script>
     window.addEventListener('show-alert', event => {
     Swal.fire(
-  'Successfully Added!'+event.detail.msg,
+  'Successfully'+" "+event.detail.msg,
   'You clicked the button!',
   'success'
 )

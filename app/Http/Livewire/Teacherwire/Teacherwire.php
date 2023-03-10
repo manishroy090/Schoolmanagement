@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Teacherwire;
 
 use Livewire\Component;
-use App\Models\Teacher as Te;
+use App\Models\Teacher;
 use Illuminate\Support\Facades\Validator;
 
-class Teacher extends Component
+class Teacherwire extends Component
 {
   public $state=[];
   public $showeditmodal=false;
@@ -21,7 +21,7 @@ class Teacher extends Component
         $this->dispatchBrowserEvent('show-modal'); 
     }
     public function getData(){
-        $this->details=Te::all();
+        $this->details=Teacher::all();
     }
     public function createTeacher(){
      $data= validator::make($this->state,[ 
@@ -33,14 +33,15 @@ class Teacher extends Component
         'salary'=>'required'
 
     ])->validate();
-     Te::create($data);
+    Teacher::create($data);
      $this->getData();
      session()->flash('message','Teacher Added Success');
     $this->dispatchBrowserEvent('hide-modal');
+    $this->dispatchBrowserEvent('show-alert',['msg'=>'Added! Teacher']);
      return redirect()->back();
   
     }
-    public function edit(Te $detail){
+    public function edit(Teacher $detail){
         $this->dispatchBrowserEvent('show-modal');
         $this->state=$detail->toArray();
         $this->showeditmodal=true;
@@ -56,26 +57,24 @@ class Teacher extends Component
             'salary'=>'required'
     
         ])->validate();
-    Te::find($this->teacher->id)->update($data);
+        Teacher::find($this->teacher->id)->update($data);
     $this->getData();
     $this->dispatchBrowserEvent('hide-modal');
+    $this->dispatchBrowserEvent('show-alert',['msg'=>'Updated! Teacher']);
       
     }
     public function trash($id){
        
-       $delete= Te::find($id)->delete();
+       $delete= Teacher::find($id)->delete();
        $this->getData();
        if($delete){
-        $this->dispatchBrowserEvent('show-alert',['delet'=>'false']);
+        $this->dispatchBrowserEvent('show-alert',['msg'=>'Deleted! Teacher']);
 
        }
-    
-      
-     
     }
     public function render()
     {
-        return view('livewire.teacher');
+        return view('livewire.teacherwire.teacherwire');
     }
 }
 ?>

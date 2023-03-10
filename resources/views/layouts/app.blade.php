@@ -69,8 +69,17 @@ type="text/javascript"></script>
             </div>
 
             <div class="flex items-center p-2.5 mt-5 duration-700 hover:rounded-md hover:bg-blue-600">
+                <i class="bi bi-people-fill"></i>
+                <a href="{{route('subject.index')}}">
+                    <h1 class="ml-[20px] text-lg">Subject</h1>
+                </a>
+                </div>
+
+            <div class="flex items-center p-2.5 mt-5 duration-700 hover:rounded-md hover:bg-blue-600">
             <i class="bi bi-bag"></i>
-                <h1 class="ml-[20px] text-lg">Fees</h1>
+            <a href="{{route('exam.index')}}">
+                <h1 class="ml-[20px] text-lg">Exam</h1>
+            </a>
             </div>
             <div class="flex items-center p-2.5 mt-5 duration-700 hover:rounded-md hover:bg-blue-600">
             <i class="bi bi-credit-card-fill"></i>

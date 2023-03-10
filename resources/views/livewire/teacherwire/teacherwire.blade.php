@@ -5,15 +5,6 @@
           <h1>Live wire Datatables</h1>
         </div>
       </div>
-      @if(session()->has('message'))
-      <div class="flex items-center bg-green-700 w-[20vw] relative left-[65rem]  text-white text-sm font-bold px-[5rem] py-3" role="alert">
-        <i class="bi bi-person-square "></i>
-        <p class="ml-3">{{session('message')}}.</p>
-      </div>
-     @endif
-   
-     
-
       <div class="bg-red-600 flex fixed top-[10rem] left-[23rem]  w-[72vw] py-[1rem] px-[1rem] rounded-md" >
         <div class="flex-none">
             <label for="perpage" class="font-bold  w-[6vw]">Per page</label>
@@ -211,9 +202,12 @@
 window.addEventListener('hide-modal',event=>{
   $('#form').modal('hide');
 })
-window.addEventListener('show-alert',event =>{
- ;
-  alert("deleted") 
-  
+
+ window.addEventListener('show-alert', event => {
+  Swal.fire(
+  'Successfully'+" "+event.detail.msg,
+  'You clicked the button!',
+  'success'
+)
 })
 </script>

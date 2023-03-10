@@ -1,12 +1,10 @@
 <?php
-
-use App\Http\Controllers\Datepicker;
 use App\Http\Controllers\ManageController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\ProfileController;
-
-use App\Http\Controllers\TabController;
 use App\Http\Controllers\TeacherController;
+use App\Http\Controllers\ExamController;
+use App\Http\Controllers\SubjectController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -35,9 +33,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/student/index',[StudentController::class,'index'])->name('student.index');
     Route::get('/teacher/index',[TeacherController::class,'index'])->name('teacher.index');
     Route::get('/manage/index',[ManageController::class,'index'])->name('manage.index');
+    Route::get('/exam/index',[ExamController::class,'index'])->name('exam.index');
+    Route::get('/subject/index',[SubjectController::class,'index'])->name('subject.index');
 });
-Route::get('/tab',[TabController::class,'index'])->name('tab');
-Route::get('/datepicker',[Datepicker::class,'index']);
 
 
 require __DIR__.'/auth.php';

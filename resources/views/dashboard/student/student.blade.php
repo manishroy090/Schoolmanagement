@@ -1,3 +1,3 @@
 <x-app-layout>
-     @livewire('studentwire')) 
+     @livewire('studentwire.studentwire')
 </x-app-layout>

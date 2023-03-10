@@ -1,3 +1,3 @@
 <x-app-layout>
-    @livewire('managewire')
+    @livewire('managewire.managewire')
 </x-app-layout>

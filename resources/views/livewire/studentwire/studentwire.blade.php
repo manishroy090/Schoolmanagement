@@ -84,7 +84,7 @@
                           <i class="bi bi-trash3-fill ml-3  hover:text-red-900 hover:text-xl" id="delete" ></i>
                    
                      
-                          <i class="bi bi-pen ml-3  hover:text-blue-600 hover:text-xl"></i>
+                          <i class="bi bi-pen ml-3  hover:text-blue-600 hover:text-xl" wire:click="edit({{$student}})"></i>
                     
                   </td>
               </tr>
@@ -105,7 +105,7 @@
             </button>
           </div>
           <div class="modal-body">
-              <form id="studentform" wire:submit.prevent="addstudent">
+              <form id="studentform" wire:submit.prevent="{{$editmodal ? 'update' :'addstudent' }}">
               <div class="flex">
                   <div class="flex flex-col">
                       <label for="studentname">Student Name :</label>

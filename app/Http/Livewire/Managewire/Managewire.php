@@ -1,12 +1,10 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Managewire;
 
 use Livewire\Component;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Manage;
-
-
 class Managewire extends Component
 { public $state=[];
     public $tablename="Section";
@@ -36,6 +34,7 @@ class Managewire extends Component
     }
 
     public function add(){
+        dd($this->state);
      $data=validator::make($this->state,[
         'name'=>'required',
         'date'=>'required'
@@ -44,7 +43,7 @@ class Managewire extends Component
   
      Manage::create($data);
     session()->flash('msg',$this->tablename." "."Added Successfull");
-    $this->dispatchBrowserEvent('show-alert',['msg'=>$this->tablename]);
+    $this->dispatchBrowserEvent('show-alert',['msg'=>'Added!'.$this->tablename]);
      $this->getData();
 
 
@@ -62,14 +61,19 @@ class Managewire extends Component
          $data['category']=$this->tablename;
         Manage::find($this->updateid->id)->update($data);
         $this->getData();
+        $this->dispatchBrowserEvent('show-alert',['msg'=>"Updated!".$this->tablename]);
     }
     public function trash($id){
-        Manage::find($id)->delete();
+       $delet= Manage::find($id)->delete();
+       if($delet){
+        $this->dispatchBrowserEvent('show-alert',['msg'=>"Deleted !".$this->tablename]);
+       }
         $this->getData();
+    
     }
     public function render()
     {
-        return view('livewire.managewire');
+        return view('livewire.managewire.managewire');
     }
 }
 ?>
