@@ -55,7 +55,7 @@
             </div>
             <div class="flex flex-col">
                 <x-input-label for="date" class="text-xl text-white">Date</x-input-label>
-                <x-text-input class="bg-white text-black border w-[15vw] h-[3rem] text-center border-black" placeholder="Date" id="date" wire:model.lazy="state.date"></x-text-input>  
+                <x-text-input class="bg-white text-black border w-[15vw] h-[3rem] text-center border-black" placeholder="Date" id="date" wire:model.lazy="state.date" onchange="livewire.emit('setDate',this.value)"></x-text-input>  
                
                 @error('date')
                     
@@ -81,5 +81,5 @@
 )
 })
  
-$('#date').nepaliDatePicker();
-    </script>
+$('#date').datepicker();
+</script>

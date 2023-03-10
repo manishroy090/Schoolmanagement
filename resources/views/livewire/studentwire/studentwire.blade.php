@@ -2,12 +2,12 @@
   <h1>Student wire</h1>
   <div class="grid place-items-center">
     <div class="bg-slate-200 fixed width-[5vw]  left-[23rem] right-[8rem] top-[3rem] h-[5rem] place-items-center grid text-3xl font-bold rounded-md">
-      <h1>Live wire Datatables</h1>
+      <h1 class="first:letter-red-600">Student's</h1>
     </div>
   </div>
-  <div class="bg-red-600 flex fixed top-[10rem] left-[23rem]  w-[72vw] py-[1rem] px-[1rem] rounded-md" >
+  <div class="bg-gray-700 flex fixed top-[10rem] left-[23rem]  w-[72vw] py-[1rem] px-[1rem] rounded-md" >
       <div class="flex-none">
-          <label for="perpage" class="font-bold  w-[6vw]">Per page</label>
+          <label for="perpage" class="font-bold text-white w-[6vw]">Per page</label>
           <select class="w-[5vw] px-2.5 py-2 h-[5vh] border-solid relative right-[1rem] rounded " id="perpage">
               <option>10</option>
               <option>20</option>
@@ -16,7 +16,7 @@
       </div>
 
       <div class="flex-none">
-          <label for="perpage" class="font-bold  w-[6vw]">Classes</label>
+          <label for="perpage" class="font-bold text-white w-[6vw]">Classes</label>
           <select class="w-[8vw] px-2.5 py-2 h-[5vh] border-solid  rounded relative right-[1rem]" id="perpage">
               <option>All Classes</option>
               <option>20</option>
@@ -25,7 +25,7 @@
       </div>
 
       <div class="flex-none">
-          <label for="perpage" class="font-bold  w-[6vw]">Section</label>
+          <label for="perpage" class="font-bold text-white w-[6vw]">Section</label>
           <select class="w-[12vw] px-2.5 py-2 h-[5vh] border-solid  rounded relative right-[1rem] " id="perpage">
               <option>Select a Section</option>
               <option>20</option>
@@ -33,8 +33,8 @@
           </select>
       </div>
 
-      <div class=" relative   h-[5vh] rounded bg-slate-400" >
-          <select class="w-[10vw] px-3.5  h-[5vh] border-solid text-black bg-transparent rounded" id="perpage">
+      <div class=" relative   h-[5vh] rounded bg-green-500" >
+          <select class="w-[10vw] px-3.5  h-[5vh] border-solid text-white bg-transparent rounded" id="perpage">
               <option>With Chcecked</option>
               <option>20</option>
               <option>30</option>
@@ -138,12 +138,11 @@
                   <div class="flex flex-col ml-[5rem]">
                       <label for="class">Class:</label>
                       <select class="w-[11vw] h-[5vh] px-4 rounded-md border-2" id="class" name="class" wire:model.defer="state.class">
-                          <option selected>Class</option>
-                          <option value="one">one</option>
-                          <option value="Two">Two</option>
-                          <option value="Three">Three</option>
-                          <option value="Four">Four</option>
-                          <option value="Five">Five</option>
+                       
+                        @foreach ($classes as $class)
+                            
+                        <option value="{{$class->id}}">{{$class->name}}</option>
+                        @endforeach
                       </select>
                       @error('class')
                         
@@ -151,6 +150,7 @@
                       @enderror
                       
                   </div>
+                
               </div>
               <div class="flex flex-row">
                   <div class="flex flex-col">
@@ -164,9 +164,11 @@
                   <div class="flex flex-col ml-[5rem]">
                       <label for="Section">Section:</label>
                       <select class="w-[11vw] h-[5vh] px-4 rounded-md border-2" id="Section"  wire:model.defer="state.section">
-                          <option>A</option>
-                          <option>B</option>
-                          <option>C</option>
+                        @foreach ($sections as $section)
+                            
+                        <option value="{{$section->id}}">{{$section->name}}</option>
+                        @endforeach
+                         
                       </select>
                       @error('section')
                         

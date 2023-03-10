@@ -8,9 +8,13 @@ use App\Models\Manage;
 class Managewire extends Component
 { public $state=[];
     public $tablename="Section";
+    public $listeners=['setDate'];
     public $datas;
     public $updateid;
     public $editbtn=false;
+    public function setDate($date){
+        $this->state['date']=$date;
+    }
    
     public function section(){
       $this->tablename="Section";
@@ -34,7 +38,7 @@ class Managewire extends Component
     }
 
     public function add(){
-        dd($this->state);
+        
      $data=validator::make($this->state,[
         'name'=>'required',
         'date'=>'required'

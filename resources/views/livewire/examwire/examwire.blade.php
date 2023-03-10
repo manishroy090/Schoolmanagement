@@ -1,23 +1,23 @@
 <div>
     {{-- If your happiness depends on money, you will never be happy with yourself. --}}
-    <div class="bg-blue-200 fixed top-[2rem] left-[20rem] px-4 py-4 border rounded-md">
-        <form>
+   
+        <form wire:submit.prevent="addExam" class="bg-blue-200 fixed top-[2rem] left-[20rem] px-4 py-4 border rounded-md">
             <h1 class="text-2xl mb-[1rem]">Add New Exam</h1>
             <hr>
             <div class="flex flex-col mt-[2rem]">
                 <label for="name" class="text-xl">Exam Name</label>
-                <x-text-input placeholder="Exam Name" class="bg-white h-[3rem] w-[20rem] text-black text-center mt-[1rem]" id="name"></x-text-input>
+                <x-text-input placeholder="Exam Name" class="bg-white h-[3rem] w-[20rem] text-black text-center mt-[1rem]" id="name" wire:model.defer='state.name'></x-text-input>
             </div>
             <div class="flex flex-col mt-3">
                 <label for="subtype" class="text-xl">Subject Type</label>
-               <select id="subtype" class="h-[3rem] text-center text-[19px] mt-[1rem] border rounded-md">
+               <select id="subtype" class="h-[3rem] text-center text-[19px] mt-[1rem] border rounded-md" wire:model.defer="state.subtype">
                 <option>Theory</option>
                 <option>Practicle</option>
                </select>
             </div>
             <div class="flex flex-col mt-3">
                 <label for="selectclass" class="text-xl">Select Class</label>
-                <select id="selectclass" class="h-[3rem] text-center text-[19px] mt-[1rem] border rounded-md">
+                <select id="selectclass" class="h-[3rem] text-center text-[19px] mt-[1rem] border rounded-md" wire:model.defer="state.class">
                     <option>One</option>
                     <option>Two</option>
                    </select>
@@ -25,7 +25,7 @@
           
             <div class="flex flex-col mt-3">
                 <label for="section" class="text-xl">Select Section</label>
-                <select id="section" class="h-[3rem] text-center text-[19px] mt-[1rem] border rounded-md">
+                <select id="section" class="h-[3rem] text-center text-[19px] mt-[1rem] border rounded-md" wire:model.defer="state.section">
                     <option>Section A</option>
                     <option>Section B</option>
                    </select>
@@ -34,21 +34,23 @@
             <div class="flex flex-row">
                 <div class="flex flex-col mt-[2rem]">
                     <label for="time" class="text-xl">Select Time</label>
-                    <x-text-input class="bg-white h-[3rem] w-[8rem] text-black text-center mt-[5px]" id="time"></x-text-input>
+                    <x-text-input class="bg-white h-[3rem] w-[8rem] text-black text-center mt-[5px]" id="time" wire:model.defer="state.time"></x-text-input>
                 </div>
+                
                 <div class="flex flex-col mt-[2rem] ml-[4rem]">
                     <label for="date" class="text-xl">Select Date</label>
-                    <x-text-input  class="bg-white h-[3rem] w-[8rem] text-black text-center mt-[5px]" id="date"></x-text-input>
+                    <x-text-input  class="bg-white h-[3rem] w-[8rem] text-black text-center mt-[5px]" id="date" wire:model.lazy="state.date"  onchange="Livewire.emit('setDate', this.value)"></x-text-input>
                 </div>
             </div>
           
-          <button class="bg-yellow-400 px-3 py-3 mt-[3rem] w-[20rem] text-xl text-white">Submit</button>
+          <button class="bg-yellow-400 px-3 py-3 mt-[3rem] w-[20rem] text-xl text-white" type="submit">Submit</button>
           
           
         </form>
-    </div>
-    <div class="fixed top-[2rem] left-[50rem] border border-black">
-        <h1 class="mt-[1rem] mb-[1rem] ml-[2rem]">All Exam Schedule</h1>
+     <div class="fixed top-[2rem] left-[50rem] border border-black">
+
+       
+         <h1 class="mt-[1rem] mb-[1rem] ml-[2rem]">All Exam Schedule</h1>
         <table class="border border-slate-900 border-separate border-spacing-4">
             <thead class="text-center border">
                 <tr>
@@ -84,6 +86,19 @@
             </tbody>
         </table>
     </div>
-
-   
 </div>
+<script>
+    $(document).ready(function(){
+      $('#time').datetimepicker({
+        format: 'hh:mm:ss a'
+      });
+      
+
+        $('#date').datepicker();
+    //    $('#date').on("change.datepicker",function(e){
+    //     Livewire.emit('setDate', e.target.value);
+    //     // console.log(e.target.value);
+    //    })
+    })
+</script>
+

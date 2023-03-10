@@ -17,6 +17,7 @@
             <div class="flex flex-col mt-3">
                 <label for="selectclass" class="text-xl">Select Class</label>
                 <select id="selectclass" class="h-[3rem] text-center text-[19px] mt-[1rem] border rounded-md">
+                  
                     <option>One</option>
                     <option>Two</option>
                    </select>

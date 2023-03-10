@@ -4,12 +4,15 @@ namespace App\Http\Livewire\Studentwire;
 
 use App\Models\Student;
 use Livewire\Component;
+use App\Models\Manage;
 use Illuminate\Support\Facades\Validator;
 
 class Studentwire extends Component
 {
     public $state=[];
     public  $students;
+    public $classes;
+    public $sections;
     public  $updateid;
     public $editmodal=false;
     public function showmodal(){
@@ -17,9 +20,12 @@ class Studentwire extends Component
     }
     public function getdata(){
        $this->students= Student::all();
+       $this->classes=Manage::where('category','Class')->get();
+       $this->sections=Manage::where('category','Section')->get();
     }
     public function mount(){
         $this->getdata();
+       
     }
     
     public function addstudent(){
