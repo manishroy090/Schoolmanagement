@@ -29,6 +29,13 @@ class Managewire extends Component
         $this->editbtn=false;
         $this->getData();
     }
+    public function subtype(){
+        $this->state='';
+        $this->tablename="subtype";
+        $this->editbtn=false;
+        $this->getData();
+        
+    }
     public function getData(){
         $this->datas=Manage::where('category',$this->tablename)->get();
 
@@ -46,6 +53,7 @@ class Managewire extends Component
      $data['category']=$this->tablename;
   
      Manage::create($data);
+     $this->state='';
     session()->flash('msg',$this->tablename." "."Added Successfull");
     $this->dispatchBrowserEvent('show-alert',['msg'=>'Added!'.$this->tablename]);
      $this->getData();

@@ -6,8 +6,8 @@
           <button type="button" class="bg-slate-400 hover:bg-blue-600 hover:text-white duration-700 rounded-md py-2 px-2" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="right" data-bs-content="Right popover" wire:click="class">
             Class
           </button>
-          <button type="button" class="bg-slate-400 hover:bg-blue-600 hover:text-white duration-700 rounded-md py-2 px-2" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-content="Bottom popover">
-            Staff Member
+          <button type="button" class="bg-slate-400 hover:bg-blue-600 hover:text-white duration-700 rounded-md py-2 px-2" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-content="Bottom popover" wire:click="subtype">
+            Subject Type
           </button>
           <button type="button" class="bg-slate-400 hover:bg-blue-600 hover:text-white duration-700 rounded-md py-2 px-2" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="left" data-bs-content="Left popover">
             Events
@@ -81,5 +81,8 @@
 )
 })
  
-$('#date').datepicker();
+$('#date').datetimepicker({
+        timepicker:false,
+        format:'Y/m/d'
+      });
 </script>
