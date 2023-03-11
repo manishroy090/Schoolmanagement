@@ -45,56 +45,92 @@
 </head>
 <body class="font-sans antialiased">
     
-    <div>
-        
-        <div class="h-full bg-gray-900 fixed top-0 bottom-0 left-0 text-white px-[2rem] rounded-md">
-            
-            <div class="flex items-center p-2.5 mt-5 duration-700 hover:rounded-md hover:bg-blue-600">
-                <i class="bi bi-calendar"></i>
-                <a href="{{route('manage.index')}}">
-                    <h1 class="ml-[20px] text-lg">Manage</h1>
-                </a>
+   
+        <div class=" bg-gray-900 fixed top-0 bottom-0 left-0 h-full">
+            <div class="duration-700 rounded-bl-lg bg-yellow-500 h-[4rem]">
+               
+               <img src="{{asset('img/logo.png')}}" class="w-[10vw] relative bottom-[37px] left-[13px]">
             </div>
-
-            
-            <div class="flex items-center p-2.5 mt-3 duration-700 hover:rounded-md hover:bg-blue-600">
-                <i class="bi bi-node-plus-fill"></i>
-                <a href="{{route('teacher.index')}}" class="text-doc">
-                    <h1 class="ml-[20px] text-lg">Teacher</h1>
-                </a>
+            <div class=" text-white px-[2rem] ">
+               
+                
+                <div class="flex items-center p-2.5 mt-5 duration-700 hover:rounded-md hover:bg-blue-600">
+                    <i class="bi bi-app-indicator text-yellow-500"></i>
+                    <a href="{{route('manage.index')}}">
+                        <h1 class="ml-[20px] text-lg">Admin</h1>
+                    </a>
+                </div>
+    
+                
+                <div class="flex items-center p-2.5 mt-3 duration-700 hover:rounded-md hover:bg-blue-600">
+                    <i class="bi bi-node-plus-fill text-yellow-500"></i>
+                    <a href="{{route('teacher.index')}}" class="text-doc">
+                        <h1 class="ml-[20px] text-lg">Teacher</h1>
+                    </a>
+                    
+                </div>
+                
+                <div class="flex items-center p-2.5 mt-3 duration-700 hover:rounded-md hover:bg-blue-600">
+                    <i class="bi bi-person-rolodex text-yellow-500"></i>
+                    <a href="{{route('student.index')}}">
+                        <h1 class="ml-[20px] text-lg">Student</h1>
+                    </a>
+                </div>
+                
+                <div class="flex items-center p-2.5 mt-3 duration-700 hover:rounded-md hover:bg-blue-600">
+                    <i class="bi bi-people-fill text-yellow-500"></i>
+                    <a href="{{route('subject.index')}}">
+                        <h1 class="ml-[20px] text-lg">Subject</h1>
+                    </a>
+                </div>
+    
+                <div class="flex items-center p-2.5 mt-3 duration-700 hover:rounded-md hover:bg-blue-600">
+                    <i class="bi bi-bag text-yellow-500"></i>
+                    <a href="{{route('exam.index')}}">
+                        <h1 class="ml-[20px] text-lg">Exam</h1>
+                    </a>
+                </div>
+                <div class="flex items-center p-2.5 mt-3 duration-700 hover:rounded-md hover:bg-blue-600" id="result">
+                    <i class="bi bi-card-list text-yellow-500"></i>
+                  
+                    <h1 class="ml-[20px] text-lg">Result</h1>
+                    <i class="bi bi-chevron-right ml-6 text-[10px] mt-[6px]"></i>
+                </div>
+                <div class="hidden" id="dropdown">
+                    <div class="flex items-center p-2.5  duration-700 hover:rounded-md hover:bg-blue-600">
+                    <i class="bi bi-card-heading text-yellow-500"></i>
+                    <a href="{{route('result.index')}}">
+                        <h1 class="ml-[20px] text-lg">Add Result</h1>
+                    </a>
+                    </div>
+                    <div class="flex items-center p-2.5  duration-700 hover:rounded-md hover:bg-blue-600">
+                        
+                        <i class="bi bi-card-checklist text-yellow-500"></i>
+                        <h1 class="ml-[20px] text-lg">Results</h1>
+                        
+                    </div>
+                    
+                </div>
+                <div class="flex items-center p-2.5 mt-3 duration-700 hover:rounded-md hover:bg-blue-600">
+                    <i class="bi bi-calendar text-yellow-500"></i>
+                    <h1 class="ml-[20px] text-lg">Time Table</h1>
+                </div>
+                <div class="flex items-center p-2.5 mt-3 duration-700 hover:rounded-md hover:bg-blue-600">
+                    <i class="bi bi-bus-front-fill text-yellow-500"></i>
+                    <h1 class="ml-[20px] text-lg">Transport</h1>
+                </div>
+                <div class="flex items-center p-2.5 mt-3 duration-700 hover:rounded-md hover:bg-blue-600">
+                    <i class="bi bi-buildings text-yellow-500"></i>
+                    <h1 class="ml-[20px] text-lg">Hostel</h1>
+                </div>
+                <div class="flex items-center p-2.5 mt-3 duration-700 hover:rounded-md hover:bg-blue-600">
+                    <i class="bi bi-box-arrow-left text-yellow-500"></i>
+                    <h1 class="ml-[20px] text-lg">Logout</h1>
+                </div>
                 
             </div>
-            
-            <div class="flex items-center p-2.5 mt-3 duration-700 hover:rounded-md hover:bg-blue-600">
-                <i class="bi bi-people-fill"></i>
-                <a href="{{route('student.index')}}">
-                    <h1 class="ml-[20px] text-lg">Student</h1>
-                </a>
-            </div>
-            
-            <div class="flex items-center p-2.5 mt-3 duration-700 hover:rounded-md hover:bg-blue-600">
-                <i class="bi bi-people-fill"></i>
-                <a href="{{route('subject.index')}}">
-                    <h1 class="ml-[20px] text-lg">Subject</h1>
-                </a>
-            </div>
-
-            <div class="flex items-center p-2.5 mt-3 duration-700 hover:rounded-md hover:bg-blue-600">
-                <i class="bi bi-bag"></i>
-                <a href="{{route('exam.index')}}">
-                    <h1 class="ml-[20px] text-lg">Exam</h1>
-                </a>
-            </div>
-            <div class="flex items-center p-2.5 mt-3 duration-700 hover:rounded-md hover:bg-blue-600">
-                <i class="bi bi-credit-card-fill"></i>
-                <h1 class="ml-[20px] text-lg">Result</h1>
-            </div>
-            <div class="flex items-center p-2.5 mt-3 duration-700 hover:rounded-md hover:bg-blue-600">
-                <i class="bi bi-box-arrow-left"></i>
-                <h1 class="ml-[20px] text-lg">Logout</h1>
-            </div>
-            
         </div>
+       
         <!-- Page Content -->
         <main>
             {{ $slot }}
@@ -102,7 +138,14 @@
     </div>
  
     @livewireScripts
-    
+    <script>
+        $(document).ready(function(){
+          $('#result').click(function(){
+            $('#dropdown').fadeToggle();
+        
+          })
+        })
+    </script>
     
     
 </body>

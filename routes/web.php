@@ -4,8 +4,10 @@ use App\Http\Controllers\StudentController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\ExamController;
+use App\Http\Controllers\ResultController;
 use App\Http\Controllers\SubjectController;
 use Illuminate\Support\Facades\Route;
+use LDAP\Result;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,6 +37,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/manage/index',[ManageController::class,'index'])->name('manage.index');
     Route::get('/exam/index',[ExamController::class,'index'])->name('exam.index');
     Route::get('/subject/index',[SubjectController::class,'index'])->name('subject.index');
+    Route::get('/result/index',[ResultController::class ,'index'])->name('result.index');
 });
 
 

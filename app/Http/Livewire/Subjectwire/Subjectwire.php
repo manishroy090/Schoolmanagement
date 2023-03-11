@@ -9,7 +9,6 @@ use Illuminate\Support\Facades\Validator;
 
 class Subjectwire extends Component
 {   public $state=[];
-
     public $classes;
     public $subtypes;
     public $edtmethod=false;
