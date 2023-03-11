@@ -4,10 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class ExamController extends Controller
+class ResultsController extends Controller
 {
-    //
     public function index(){
-        return view('dashboard.exam.exam');
+        return view('dashboard.result.result');
     }
 }
