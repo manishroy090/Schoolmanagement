@@ -7,6 +7,6 @@ use Illuminate\Http\Request;
 class SubjectsController extends Controller
 {
     public function index (){
-          return view('dashboard.subject.subject');
+          return view('admin.dashboard.subject.subject');
     }
 }

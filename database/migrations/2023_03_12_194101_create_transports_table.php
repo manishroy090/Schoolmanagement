@@ -11,12 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('manages', function (Blueprint $table) {
+        Schema::create('transports', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('date_time');
-            $table->string('category');
-            $table->string('ending')->nullable();
+            $table->string('rutename');
+            $table->string('vechilenumber');
+            $table->string('drivername');
+            $table->string("licensenumer");
+            $table->string("phonenumber");
             $table->timestamps();
         });
     }
@@ -26,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('manages');
+        Schema::dropIfExists('transports');
     }
 };

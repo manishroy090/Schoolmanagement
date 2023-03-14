@@ -28,13 +28,13 @@
      <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js" integrity="sha512-T/tUfKSV1bihCnd+MxKD0Hm1uBBroVYBOYSk1knyvQ9VyZJpc/ALb4P0r6ubwVPSGB2GvjeoMAJJImBG12TiaQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js" integrity="sha512-AIOTidJAcHBH2G/oZv9viEGXRqDNmfdPVPYOYKGy3fti0xIplnlgMHUGfuNRzC6FkzIo0iIxgFnr9RikFxK+sw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     @livewireStyles
-    <!--nepali datepicker 
+    <!--nepali datepicker -->
         <link
         href="http://nepalidatepicker.sajanmaharjan.com.np/nepali.datepicker/css/nepali.datepicker.v4.0.1.min.css"
         rel="stylesheet" type="text/css"/>
         <script
         src="http://nepalidatepicker.sajanmaharjan.com.np/nepali.datepicker/js/nepali.datepicker.v4.0.1.min.js"
-        type="text/javascript"></script>-->
+        type="text/javascript"></script>
         
         
         <!--Sweet Alert -->
@@ -57,12 +57,27 @@
                
        
           
-            <div class="flex items-center p-2.5 mt-5 duration-700 hover:rounded-md hover:bg-blue-600">
+            <div class="flex items-center p-2.5 mt-5 duration-700 hover:rounded-md hover:bg-blue-600" id="admin">
                 <i class="bi bi-app-indicator text-yellow-500"></i>
-                <a href="{{route('admin.index')}}">
+             
+                    <h1 class="ml-[20px] text-lg">Admin</h1>
+                
+            </div>
+            <div class="hidden" id="admindropdown">
+                <div class="flex items-center p-2.5  duration-700 hover:rounded-md hover:bg-blue-600">
+                <i class="bi bi-card-heading text-yellow-500"></i>
+                <a href="{{route('results.index')}}">
                     <h1 class="ml-[20px] text-lg">Admin</h1>
                 </a>
                 </div>
+                <div class="flex items-center p-2.5  duration-700 hover:rounded-md hover:bg-blue-600">
+                    
+                    <i class="bi bi-node-plus-fill text-yellow-500"></i>
+                    <h1 class="ml-[20px] text-lg">Create</h1>
+                    
+                </div>
+                
+            </div>
                 
           
                 
@@ -110,15 +125,23 @@
                 
                 <div class="flex items-center p-2.5 mt-3 duration-700 hover:rounded-md hover:bg-blue-600">
                     <i class="bi bi-calendar text-yellow-500"></i>
+                    <a href="{{route('timetable.index')}}">
                     <h1 class="ml-[20px] text-lg">Time Table</h1>
+                </a>
                 </div>
                 <div class="flex items-center p-2.5 mt-3 duration-700 hover:rounded-md hover:bg-blue-600">
                     <i class="bi bi-bus-front-fill text-yellow-500"></i>
+                    <a href="{{route('transport.index')}}">
                     <h1 class="ml-[20px] text-lg">Transport</h1>
+                </a>
                 </div>
                 <div class="flex items-center p-2.5 mt-3 duration-700 hover:rounded-md hover:bg-blue-600">
                     <i class="bi bi-buildings text-yellow-500"></i>
+                   <a href="{{route('hostel.index')}}">
                     <h1 class="ml-[20px] text-lg">Hostel</h1>
+                   </a>
+                  
+               
                 </div>
                 <div class="flex items-center p-2.5 mt-3 duration-700 hover:rounded-md hover:bg-blue-600">
                     <i class="bi bi-box-arrow-left text-yellow-500"></i>
@@ -228,7 +251,12 @@
             $('#studentdropdown').fadeToggle();
         
           })
+          $('#admin').click(function(){
+            $('#admindropdown').fadeToggle();
+        
+          })
         })
+        
     </script>
     
     

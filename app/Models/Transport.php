@@ -5,9 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Manage extends Model
+class Transport extends Model
 {
     use HasFactory;
-    protected $fillable=['name','category','date_time','ending'];
-
+    protected $fillable=['rutename','vechilenumber','drivername', 'licensenumer','phonenumber'];
 }

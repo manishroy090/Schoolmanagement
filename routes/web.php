@@ -4,8 +4,11 @@ use app\Http\Controllers\StudentsController\StudentsController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TeachersController;
 use App\Http\Controllers\ExamsController;
+use App\Http\Controllers\HostelsController\HostelsController;
 use App\Http\Controllers\ResultsController;
 use App\Http\Controllers\SubjectsController;
+use App\Http\Controllers\TimetablesController\TimetablesController;
+use App\Http\Controllers\TransportsController\TransportsController;
 use Illuminate\Support\Facades\Route;
 use LDAP\Result;
 
@@ -39,8 +42,10 @@ Route::middleware(['auth','admin'])->group(function () {
     Route::get('/students/index','App\Http\Controllers\StudentsController\StudentsController@index')->name('students.index');
     Route::get('/subjects/index',[SubjectsController::class,'index'])->name('subjects.index');
     Route::get('/exams/index',[ExamsController::class,'index'])->name('exams.index');
-   
     Route::get('/teachers/index',[TeachersController::class,'index'])->name('teachers.index');
+    Route::get('/timetable/index',[TimetablesController::class,'index'])->name('timetable.index');
+    Route::get('/transport/index',[TransportsController::class,'index'])->name('transport.index');
+    Route::get('/hostel/index',[HostelsController::class,'index'])->name('hostel.index');
 });
 
 

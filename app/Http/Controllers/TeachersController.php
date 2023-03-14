@@ -9,7 +9,7 @@ class TeachersController extends Controller
   
     
     public function index(){
-        return view('dashboard.teachers.teacher');
+        return view('admin.dashboard.teachers.teacher');
     }
     
 }

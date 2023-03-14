@@ -9,6 +9,6 @@ class StudentsController extends Controller
 {
     //
     public function index(){
-        return view('dashboard.students.students');
+        return view('admin.dashboard.students.students');
     }
 }
